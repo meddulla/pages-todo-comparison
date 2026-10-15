@@ -1,1 +1,14 @@
-{"type":"module","scripts":{"dev":"vite","build":"vite build && cp ../stories.json dist/stories.json","preview":"vite preview"},"dependencies":{"@sveltejs/vite-plugin-svelte":"latest","vite":"latest","svelte":"latest"},"devDependencies":{}}
+{
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && cp ../stories.json dist/stories.json",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@sveltejs/vite-plugin-svelte": "latest",
+    "vite": "latest",
+    "svelte": "latest"
+  },
+  "devDependencies": {}
+}

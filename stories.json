@@ -9,10 +9,28 @@
     "age": "2 hours ago",
     "text": "I wanted search that felt instant and stayed entirely on my laptop. The index is a single file and the UI is deliberately small. I wrote up the trade-offs and included the source.",
     "comments": [
-      { "id": 101, "user": "tptacek", "age": "1 hour ago", "text": "The restraint in the interface is excellent. Did you experiment with stemming, or was exact token matching enough?", "replies": [
-        { "id": 102, "user": "mira", "age": "54 minutes ago", "text": "I tried stemming first, but prefixes plus a small synonym list worked better for my own notes.", "replies": [] }
-      ]},
-      { "id": 103, "user": "sama", "age": "47 minutes ago", "text": "A local index that can be inspected and backed up as a normal file is a compelling feature on its own.", "replies": [] }
+      {
+        "id": 101,
+        "user": "tptacek",
+        "age": "1 hour ago",
+        "text": "The restraint in the interface is excellent. Did you experiment with stemming, or was exact token matching enough?",
+        "replies": [
+          {
+            "id": 102,
+            "user": "mira",
+            "age": "54 minutes ago",
+            "text": "I tried stemming first, but prefixes plus a small synonym list worked better for my own notes.",
+            "replies": []
+          }
+        ]
+      },
+      {
+        "id": 103,
+        "user": "sama",
+        "age": "47 minutes ago",
+        "text": "A local index that can be inspected and backed up as a normal file is a compelling feature on its own.",
+        "replies": []
+      }
     ]
   },
   {
@@ -25,7 +43,13 @@
     "age": "3 hours ago",
     "text": "A field guide to making careful changes in systems that have outlived their original teams, frameworks, and assumptions.",
     "comments": [
-      { "id": 201, "user": "patio11", "age": "2 hours ago", "text": "Maintenance is product development with a much richer set of constraints. That deserves more respect than it gets.", "replies": [] }
+      {
+        "id": 201,
+        "user": "patio11",
+        "age": "2 hours ago",
+        "text": "Maintenance is product development with a much richer set of constraints. That deserves more respect than it gets.",
+        "replies": []
+      }
     ]
   },
   {
@@ -38,8 +62,20 @@
     "age": "4 hours ago",
     "text": "We tested read-heavy workloads across twelve regions and documented the parts that were surprisingly easy—and the parts that were not.",
     "comments": [
-      { "id": 301, "user": "kelseyhightower", "age": "3 hours ago", "text": "The latency charts are useful. I would love to see the same test with a write-heavy workload.", "replies": [] },
-      { "id": 302, "user": "arun_dev", "age": "2 hours ago", "text": "That is next. Coordinating writes changes the shape of the problem quite a bit.", "replies": [] }
+      {
+        "id": 301,
+        "user": "kelseyhightower",
+        "age": "3 hours ago",
+        "text": "The latency charts are useful. I would love to see the same test with a write-heavy workload.",
+        "replies": []
+      },
+      {
+        "id": 302,
+        "user": "arun_dev",
+        "age": "2 hours ago",
+        "text": "That is next. Coordinating writes changes the shape of the problem quite a bit.",
+        "replies": []
+      }
     ]
   },
   {
@@ -52,7 +88,13 @@
     "age": "5 hours ago",
     "text": "Not a platform or a major framework—what little utility quietly saves you time every week?",
     "comments": [
-      { "id": 401, "user": "dang", "age": "4 hours ago", "text": "A shell alias that creates a dated scratch directory and opens it in my editor.", "replies": [] }
+      {
+        "id": 401,
+        "user": "dang",
+        "age": "4 hours ago",
+        "text": "A shell alias that creates a dated scratch directory and opens it in my editor.",
+        "replies": []
+      }
     ]
   },
   {

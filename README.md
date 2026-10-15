@@ -3,12 +3,12 @@
 Four independent Cloudflare Pages projects use the same source fixture, `stories.json`.
 Each build copies that fixture into its own deployment output.
 
-| Project | Root directory | Build command | Output directory |
-| --- | --- | --- | --- |
-| Plain HTML/JS/CSS | `plain` | `npm install && npm run build` | `dist` |
-| React | `react` | `npm install && npm run build` | `dist` |
-| Vue | `vue` | `npm install && npm run build` | `dist` |
-| Svelte | `svelte` | `npm install && npm run build` | `dist` |
+| Project           | Root directory | Build command                  | Output directory |
+| ----------------- | -------------- | ------------------------------ | ---------------- |
+| Plain HTML/JS/CSS | `plain`        | `npm install && npm run build` | `dist`           |
+| React             | `react`        | `npm install && npm run build` | `dist`           |
+| Vue               | `vue`          | `npm install && npm run build` | `dist`           |
+| Svelte            | `svelte`       | `npm install && npm run build` | `dist`           |
 
 ## Deploy with the Cloudflare dashboard
 

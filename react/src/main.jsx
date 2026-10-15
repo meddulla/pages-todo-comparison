@@ -1,9 +1,196 @@
-import React,{useEffect,useState}from'react';import{createRoot}from'react-dom/client';import'./style.css';
-const key='threadline-react-votes';const total=cs=>cs.reduce((n,c)=>n+1+total(c.replies||[]),0);
-function App(){const[stories,setStories]=useState([]),[selected,setSelected]=useState(null),[votes,setVotes]=useState(()=>JSON.parse(localStorage.getItem(key)||'[]'));useEffect(()=>{fetch('./stories.json').then(r=>r.json()).then(setStories)},[]);const vote=id=>{const next=votes.includes(id)?votes.filter(x=>x!==id):[...votes,id];setVotes(next);localStorage.setItem(key,JSON.stringify(next))};const add=text=>setStories(stories.map(s=>s.id===selected?{...s,comments:[{id:Date.now(),user:'you',age:'just now',text,replies:[]},...s.comments]}:s));const story=stories.find(s=>s.id===selected);return <><Header home={()=>setSelected(null)}/><main>{story?<Detail story={story} voted={votes.includes(story.id)} vote={vote} back={()=>setSelected(null)} add={add}/>:<List stories={stories} votes={votes} vote={vote} open={setSelected}/>}</main><footer>Built with React. Demo data, real interactions.</footer></>}
-function Header({home}){return <header><button className="brand" onClick={home}><b>T</b><span>threadline</span></button><nav><button onClick={home}>top</button><i/><button>new</button><i/><button>ask</button><i/><button>show</button></nav><em>React edition</em></header>}
-function Vote({on,click}){return <button aria-label="Upvote" className={'vote '+(on?'on':'')} onClick={e=>{e.stopPropagation();click()}}/>}
-function List({stories,votes,vote,open}){return <><section className="intro"><small>THE DAILY THREAD</small><h1>Ideas worth sharing.</h1><p>A reader-ranked collection of technology, design, and thoughtful internet miscellany.</p></section><section className="feed">{stories.map((s,i)=><article className="story" key={s.id}><div className="rank">{String(i+1).padStart(2,'0')}</div><Vote on={votes.includes(s.id)} click={()=>vote(s.id)}/><div><button className="title" onClick={()=>open(s.id)}>{s.title}</button>{s.domain&&<span className="domain">{s.domain}</span>}<p>{s.points+(votes.includes(s.id)?1:0)} points · {s.user} · {s.age} · <button onClick={()=>open(s.id)}>{total(s.comments)} comments</button></p></div></article>)}</section></>}
-function Detail({story,voted,vote,back,add}){const[text,setText]=useState('');return <><button className="back" onClick={back}>← All stories</button><article className="feature"><small>{story.domain||'DISCUSSION'}</small><h1>{story.title}</h1><div className="by"><Vote on={voted} click={()=>vote(story.id)}/>{story.points+(voted?1:0)} points by {story.user} · {story.age}</div><p>{story.text}</p>{story.url&&<a href={story.url}>Read the original story ↗</a>}</article><div className="comment-head"><h2>Discussion</h2><span>{total(story.comments)} comments</span></div><form onSubmit={e=>{e.preventDefault();if(text.trim()){add(text);setText('')}}}><textarea value={text} onChange={e=>setText(e.target.value)} placeholder="What do you think?"/><button>Post comment</button></form><Comments items={story.comments}/></>}
-function Comments({items}){return <>{items.map(c=><article className="comment" key={c.id}><b>{c.user}</b><small>{c.age}</small><p>{c.text}</p>{c.replies?.length>0&&<div className="nested"><Comments items={c.replies}/></div>}</article>)}</>}
-createRoot(document.getElementById('root')).render(<App/>);
+import React, { useEffect, useState } from "react";
+import { createRoot } from "react-dom/client";
+import "./style.css";
+const key = "threadline-react-votes";
+const total = (cs) => cs.reduce((n, c) => n + 1 + total(c.replies || []), 0);
+function App() {
+  const [stories, setStories] = useState([]),
+    [selected, setSelected] = useState(null),
+    [votes, setVotes] = useState(() =>
+      JSON.parse(localStorage.getItem(key) || "[]"),
+    );
+  useEffect(() => {
+    fetch("./stories.json")
+      .then((r) => r.json())
+      .then(setStories);
+  }, []);
+  const vote = (id) => {
+    const next = votes.includes(id)
+      ? votes.filter((x) => x !== id)
+      : [...votes, id];
+    setVotes(next);
+    localStorage.setItem(key, JSON.stringify(next));
+  };
+  const add = (text) =>
+    setStories(
+      stories.map((s) =>
+        s.id === selected
+          ? {
+              ...s,
+              comments: [
+                {
+                  id: Date.now(),
+                  user: "you",
+                  age: "just now",
+                  text,
+                  replies: [],
+                },
+                ...s.comments,
+              ],
+            }
+          : s,
+      ),
+    );
+  const story = stories.find((s) => s.id === selected);
+  return (
+    <>
+      <Header home={() => setSelected(null)} />
+      <main>
+        {story ? (
+          <Detail
+            story={story}
+            voted={votes.includes(story.id)}
+            vote={vote}
+            back={() => setSelected(null)}
+            add={add}
+          />
+        ) : (
+          <List
+            stories={stories}
+            votes={votes}
+            vote={vote}
+            open={setSelected}
+          />
+        )}
+      </main>
+      <footer>Built with React. Demo data, real interactions.</footer>
+    </>
+  );
+}
+function Header({ home }) {
+  return (
+    <header>
+      <button className="brand" onClick={home}>
+        <b>T</b>
+        <span>threadline</span>
+      </button>
+      <nav>
+        <button onClick={home}>top</button>
+        <i />
+        <button>new</button>
+        <i />
+        <button>ask</button>
+        <i />
+        <button>show</button>
+      </nav>
+      <em>React edition</em>
+    </header>
+  );
+}
+function Vote({ on, click }) {
+  return (
+    <button
+      aria-label="Upvote"
+      className={"vote " + (on ? "on" : "")}
+      onClick={(e) => {
+        e.stopPropagation();
+        click();
+      }}
+    />
+  );
+}
+function List({ stories, votes, vote, open }) {
+  return (
+    <>
+      <section className="intro">
+        <small>THE DAILY THREAD</small>
+        <h1>Ideas worth sharing.</h1>
+        <p>
+          A reader-ranked collection of technology, design, and thoughtful
+          internet miscellany.
+        </p>
+      </section>
+      <section className="feed">
+        {stories.map((s, i) => (
+          <article className="story" key={s.id}>
+            <div className="rank">{String(i + 1).padStart(2, "0")}</div>
+            <Vote on={votes.includes(s.id)} click={() => vote(s.id)} />
+            <div>
+              <button className="title" onClick={() => open(s.id)}>
+                {s.title}
+              </button>
+              {s.domain && <span className="domain">{s.domain}</span>}
+              <p>
+                {s.points + (votes.includes(s.id) ? 1 : 0)} points · {s.user} ·{" "}
+                {s.age} ·{" "}
+                <button onClick={() => open(s.id)}>
+                  {total(s.comments)} comments
+                </button>
+              </p>
+            </div>
+          </article>
+        ))}
+      </section>
+    </>
+  );
+}
+function Detail({ story, voted, vote, back, add }) {
+  const [text, setText] = useState("");
+  return (
+    <>
+      <button className="back" onClick={back}>
+        ← All stories
+      </button>
+      <article className="feature">
+        <small>{story.domain || "DISCUSSION"}</small>
+        <h1>{story.title}</h1>
+        <div className="by">
+          <Vote on={voted} click={() => vote(story.id)} />
+          {story.points + (voted ? 1 : 0)} points by {story.user} · {story.age}
+        </div>
+        <p>{story.text}</p>
+        {story.url && <a href={story.url}>Read the original story ↗</a>}
+      </article>
+      <div className="comment-head">
+        <h2>Discussion</h2>
+        <span>{total(story.comments)} comments</span>
+      </div>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          if (text.trim()) {
+            add(text);
+            setText("");
+          }
+        }}
+      >
+        <textarea
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="What do you think?"
+        />
+        <button>Post comment</button>
+      </form>
+      <Comments items={story.comments} />
+    </>
+  );
+}
+function Comments({ items }) {
+  return (
+    <>
+      {items.map((c) => (
+        <article className="comment" key={c.id}>
+          <b>{c.user}</b>
+          <small>{c.age}</small>
+          <p>{c.text}</p>
+          {c.replies?.length > 0 && (
+            <div className="nested">
+              <Comments items={c.replies} />
+            </div>
+          )}
+        </article>
+      ))}
+    </>
+  );
+}
+createRoot(document.getElementById("root")).render(<App />);
