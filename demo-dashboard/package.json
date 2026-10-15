@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev:native": "node native/server.mjs",
+    "dev:vite": "vite --config vite/vite.config.js",
+    "build:native": "node native/build.mjs",
+    "build:vite": "vite build --config vite/vite.config.js",
+    "preview:vite": "vite preview --config vite/vite.config.js"
+  },
+  "devDependencies": {
+    "vite": "latest"
+  }
+}

@@ -56,3 +56,27 @@ npx wrangler pages deploy dist --project-name threadline-plain
 ```
 
 Replace `plain` and `threadline-plain` with `react`, `vue`, or `svelte` and the corresponding Pages project name. Authenticate first with `npx wrangler login` if needed.
+
+## Dashboard bundler comparison
+
+`demo-dashboard` is a more complex plain JavaScript application served in two ways from the same source:
+
+- **Native modules:** no bundler; the build copies source files into `native/dist`.
+- **Vite:** bundles, splits, and optimizes the same source into `vite/dist`.
+
+It includes dynamically imported routes, Web Components, canvas charts, search, a drag-and-drop task board, local storage, and dark mode.
+
+```sh
+cd demo-dashboard
+npm install
+
+# Development
+npm run dev:native  # http://localhost:4173
+npm run dev:vite
+
+# Cloudflare Pages builds
+npm run build:native
+npm run build:vite
+```
+
+For Cloudflare Pages, use `demo-dashboard` as the root directory. Use `npm install && npm run build:native` with `native/dist`, or `npm install && npm run build:vite` with `vite/dist`.

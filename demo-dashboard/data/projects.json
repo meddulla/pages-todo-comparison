@@ -1,0 +1,29 @@
+{
+  "summary": {
+    "activeProjects": 8,
+    "completedThisMonth": 24,
+    "teamVelocity": 87,
+    "hoursSaved": 36
+  },
+  "activity": [18, 26, 21, 35, 32, 48, 42, 55, 61, 58, 72, 68],
+  "projects": [
+    { "id": 1, "name": "Atlas redesign", "team": "Design systems", "progress": 78, "status": "On track", "color": "violet" },
+    { "id": 2, "name": "Edge analytics", "team": "Platform", "progress": 54, "status": "At risk", "color": "orange" },
+    { "id": 3, "name": "Mobile onboarding", "team": "Growth", "progress": 92, "status": "On track", "color": "green" },
+    { "id": 4, "name": "Billing migration", "team": "Commerce", "progress": 41, "status": "Review", "color": "blue" }
+  ],
+  "tasks": [
+    { "id": 101, "title": "Map the new navigation", "project": "Atlas redesign", "assignee": "AM", "priority": "High", "column": "backlog" },
+    { "id": 102, "title": "Audit event taxonomy", "project": "Edge analytics", "assignee": "SK", "priority": "Medium", "column": "backlog" },
+    { "id": 103, "title": "Prototype first-run flow", "project": "Mobile onboarding", "assignee": "JL", "priority": "High", "column": "progress" },
+    { "id": 104, "title": "Benchmark query latency", "project": "Edge analytics", "assignee": "NO", "priority": "High", "column": "progress" },
+    { "id": 105, "title": "Review invoice exports", "project": "Billing migration", "assignee": "RM", "priority": "Low", "column": "review" },
+    { "id": 106, "title": "Publish component guidance", "project": "Atlas redesign", "assignee": "AM", "priority": "Medium", "column": "done" }
+  ],
+  "events": [
+    { "person": "Ari", "action": "moved a task to Review", "target": "Atlas redesign", "time": "8m" },
+    { "person": "Nora", "action": "completed a benchmark", "target": "Edge analytics", "time": "32m" },
+    { "person": "Jules", "action": "uploaded a prototype", "target": "Mobile onboarding", "time": "1h" },
+    { "person": "Sam", "action": "commented on", "target": "Billing migration", "time": "2h" }
+  ]
+}
