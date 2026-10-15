@@ -6,8 +6,13 @@ const root = new URL('..', import.meta.url).pathname;
 const types = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json' };
 
 createServer(async (request, response) => {
-  const pathname = request.url === '/' ? '/src/index.html' : request.url;
-  const file = normalize(join(root, pathname.split('?')[0]));
+  const pathname =
+    request.url === '/'
+      ? '/src/index.html'
+      : request.url.startsWith('/data/')
+        ? request.url
+        : `/src${request.url}`;
+  const file = normalize(join(root, pathname.split('?')[0].replace(/^\//, '')));
   try {
     await stat(file);
     response.setHeader('Content-Type', types[extname(file)] || 'application/octet-stream');
