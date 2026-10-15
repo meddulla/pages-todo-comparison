@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "title": "Show HN: I built a tiny search engine for personal notes",
+    "url": "https://example.com/tiny-search",
+    "domain": "example.com",
+    "points": 412,
+    "user": "mira",
+    "age": "2 hours ago",
+    "text": "I wanted search that felt instant and stayed entirely on my laptop. The index is a single file and the UI is deliberately small. I wrote up the trade-offs and included the source.",
+    "comments": [
+      { "id": 101, "user": "tptacek", "age": "1 hour ago", "text": "The restraint in the interface is excellent. Did you experiment with stemming, or was exact token matching enough?", "replies": [
+        { "id": 102, "user": "mira", "age": "54 minutes ago", "text": "I tried stemming first, but prefixes plus a small synonym list worked better for my own notes.", "replies": [] }
+      ]},
+      { "id": 103, "user": "sama", "age": "47 minutes ago", "text": "A local index that can be inspected and backed up as a normal file is a compelling feature on its own.", "replies": [] }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "The quiet craft of maintaining old software",
+    "url": "https://example.org/old-software",
+    "domain": "example.org",
+    "points": 287,
+    "user": "ben_w",
+    "age": "3 hours ago",
+    "text": "A field guide to making careful changes in systems that have outlived their original teams, frameworks, and assumptions.",
+    "comments": [
+      { "id": 201, "user": "patio11", "age": "2 hours ago", "text": "Maintenance is product development with a much richer set of constraints. That deserves more respect than it gets.", "replies": [] }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "SQLite on the edge: a practical experiment",
+    "url": "https://lab.example.net/sqlite-edge",
+    "domain": "lab.example.net",
+    "points": 236,
+    "user": "arun_dev",
+    "age": "4 hours ago",
+    "text": "We tested read-heavy workloads across twelve regions and documented the parts that were surprisingly easy—and the parts that were not.",
+    "comments": [
+      { "id": 301, "user": "kelseyhightower", "age": "3 hours ago", "text": "The latency charts are useful. I would love to see the same test with a write-heavy workload.", "replies": [] },
+      { "id": 302, "user": "arun_dev", "age": "2 hours ago", "text": "That is next. Coordinating writes changes the shape of the problem quite a bit.", "replies": [] }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Ask HN: What small tool improved your day-to-day work?",
+    "url": "",
+    "domain": "",
+    "points": 198,
+    "user": "northstar",
+    "age": "5 hours ago",
+    "text": "Not a platform or a major framework—what little utility quietly saves you time every week?",
+    "comments": [
+      { "id": 401, "user": "dang", "age": "4 hours ago", "text": "A shell alias that creates a dated scratch directory and opens it in my editor.", "replies": [] }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "A visual tour of the DNS resolver",
+    "url": "https://networking.example.com/dns-tour",
+    "domain": "networking.example.com",
+    "points": 174,
+    "user": "packetwitch",
+    "age": "5 hours ago",
+    "text": "Follow a single lookup from the browser cache through recursive and authoritative servers with annotated packet captures.",
+    "comments": []
+  },
+  {
+    "id": 6,
+    "title": "PostgreSQL indexes: what the planner actually sees",
+    "url": "https://db.example.dev/planner",
+    "domain": "db.example.dev",
+    "points": 151,
+    "user": "heap_page",
+    "age": "6 hours ago",
+    "text": "An approachable explanation of statistics, selectivity, and why a seemingly perfect index sometimes stays unused.",
+    "comments": []
+  },
+  {
+    "id": 7,
+    "title": "The case for boring internal tools",
+    "url": "https://works.example.com/boring-tools",
+    "domain": "works.example.com",
+    "points": 133,
+    "user": "moss",
+    "age": "7 hours ago",
+    "text": "Internal software benefits from obvious navigation, stable conventions, and fewer clever abstractions.",
+    "comments": []
+  },
+  {
+    "id": 8,
+    "title": "Show HN: A 4KB weather app with no build step",
+    "url": "https://weather.example.io",
+    "domain": "weather.example.io",
+    "points": 119,
+    "user": "smallweb",
+    "age": "8 hours ago",
+    "text": "A weekend project exploring how useful an application can be before dependencies and tooling arrive.",
+    "comments": []
+  }
+]
