@@ -23,6 +23,27 @@ Push this repository to GitHub or GitLab, then create four separate Pages projec
 
 Each project can use its generated `*.pages.dev` address or a separate custom domain. Subsequent pushes to the connected branch trigger a new deployment.
 
+## Run locally
+
+For normal development, enter any project directory and start its Vite development server:
+
+```sh
+cd plain
+npm install
+npm run dev
+```
+
+To test the production build with the Cloudflare Pages development server, build first and pass Wrangler the generated asset directory:
+
+```sh
+cd plain
+npm install
+npm run build
+npx wrangler pages dev dist
+```
+
+Running `npx wrangler pages dev` without `dist` will fail because Wrangler needs a directory of static assets to serve. Replace `plain` with `react`, `vue`, or `svelte` to run another implementation.
+
 ## Deploy with Wrangler
 
 Build and deploy one project at a time from the repository root:
